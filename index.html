@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050914">
+<title>NIMA V2RAY | Subscription Portal</title>
+<style>
+:root{color-scheme:dark;--bg:#050914;--card:rgba(29,10,27,.82);--line:rgba(255,79,163,.23);--cyan:#ff4fa3;--blue:#b026ff;--muted:#8da2bd;--text:#edf7ff;--green:#48e0a4;--red:#ff647c}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 15% 5%,rgba(255,35,145,.19),transparent 38%),radial-gradient(ellipse at 90% 20%,rgba(176,38,255,.19),transparent 35%),var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:linear-gradient(rgba(255,79,163,.075) 1px,transparent 1px),linear-gradient(90deg,rgba(255,79,163,.075) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+.wrap{width:min(1040px,calc(100% - 30px));margin:0 auto;padding:38px 0 28px;position:relative}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:13px}.logo{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,#ff4fa3,#b026ff);color:#03101e;font-weight:1000;font-size:20px;box-shadow:0 0 30px #ff2d9b66}.brand h1{font-size:clamp(19px,4vw,26px);letter-spacing:.04em;margin:0}.brand p{margin:2px 0 0;color:var(--muted);font-size:11px;letter-spacing:.22em;text-transform:uppercase}.pill{border:1px solid var(--line);background:#0b1729aa;border-radius:999px;padding:8px 13px;color:var(--muted);font-size:12px;white-space:nowrap}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:7px;box-shadow:0 0 10px var(--green)}.dot.off{background:var(--red);box-shadow:0 0 10px var(--red)}
+.hero{padding:26px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(120deg,rgba(48,10,39,.94),rgba(17,8,29,.92));box-shadow:0 20px 70px #0006;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-100px;top:-150px;background:#ff2d9b2b;filter:blur(4px)}.eyebrow{color:var(--cyan);font-size:11px;letter-spacing:.22em;text-transform:uppercase}.hero h2{font-size:clamp(24px,5vw,38px);line-height:1.15;margin:8px 0}.hero p{color:var(--muted);margin:0;max-width:620px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}.card{border:1px solid var(--line);border-radius:20px;background:var(--card);padding:20px;backdrop-filter:blur(14px);box-shadow:0 12px 35px #0003}.card h3{margin:0 0 16px;font-size:13px;color:#c9e8ff;letter-spacing:.1em;text-transform:uppercase}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.stat{padding:13px;border-radius:14px;background:#1a0b1b;border:1px solid #7acbff12}.label{font-size:11px;color:var(--muted);margin-bottom:5px}.value{font-size:clamp(16px,3vw,21px);font-weight:750;overflow-wrap:anywhere}.bar{height:9px;background:#1a2a40;border-radius:99px;overflow:hidden;margin:14px 0 8px}.bar span{height:100%;display:block;width:0;background:linear-gradient(90deg,#ff4fa3,#b026ff);border-radius:99px;box-shadow:0 0 15px #ff4fa388;transition:width .5s}.between{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}.btn{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--text);background:#32102d;text-decoration:none;font-weight:650;font-size:13px;cursor:pointer}.btn.primary{background:linear-gradient(100deg,#ff3d9a,#b026ff);border:0;color:#04101e}.btn:hover{filter:brightness(1.12)}.links{display:grid;gap:9px;max-height:280px;overflow:auto}.linkrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;border:1px solid #7acbff18;border-radius:12px;background:#1a0b1b}.linkrow code{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#b6dfff;font-size:11px}.smallbtn{flex:none;border:1px solid var(--line);background:#32102d;color:var(--cyan);border-radius:9px;padding:7px 10px;cursor:pointer}.notice{margin-top:16px;border:1px solid #39d5ff25;background:#210d25;border-radius:15px;padding:13px 15px;color:#a9c5df;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.footer{text-align:center;color:#60758e;font-size:11px;padding:24px 0 0;letter-spacing:.08em}.error{color:#ff9aab}
+@media(max-width:650px){.wrap{padding-top:22px}.grid{grid-template-columns:1fr}.hero{padding:21px}.card{padding:17px}header{align-items:flex-start}.pill{font-size:10px;padding:7px 9px}.stats{gap:9px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand"><div class="logo">NV</div><div><h1>NIMA V2RAY</h1><p>NEXT-GEN PRIVATE NETWORK</p></div></div>
+  <div class="pill"><span id="statusDot" class="dot"></span><span id="statusText">Checking status</span></div>
+</header>
+<section class="hero">
+  <div class="eyebrow">Subscription portal</div>
+  <h2>NIMA V2RAY</h2>
+  <p>Your private connection dashboard. Fast, secure and always connected.</p>
+  <div class="actions">
+    <button class="btn primary" id="copySub">Copy subscription URL</button>
+    <a class="btn" id="jsonLink" href="#" target="_blank" rel="noopener">JSON config</a>
+    <a class="btn" id="clashLink" href="#" target="_blank" rel="noopener">Clash / Mihomo</a>
+  </div>
+</section>
+<div class="grid">
+  <section class="card">
+    <h3>Traffic overview</h3>
+    <div class="stats">
+      <div class="stat"><div class="label">USED</div><div class="value" id="used">{{ .used }}</div></div>
+      <div class="stat"><div class="label">REMAINING</div><div class="value" id="remaining">{{ .remained }}</div></div>
+      <div class="stat"><div class="label">DOWNLOAD</div><div class="value" id="download">{{ .download }}</div></div>
+      <div class="stat"><div class="label">UPLOAD</div><div class="value" id="upload">{{ .upload }}</div></div>
+    </div>
+    <div class="bar"><span id="usageBar"></span></div>
+    <div class="between"><span id="usagePercent">Usage information</span><span id="total">Limit: {{ .total }}</span></div>
+  </section>
+  <section class="card">
+    <h3>Subscription details</h3>
+    <div class="stats">
+      <div class="stat"><div class="label">ACCOUNT</div><div class="value" id="enabled">{{ if .enabled }}Enabled{{ else }}Disabled{{ end }}</div></div>
+      <div class="stat"><div class="label">EXPIRES</div><div class="value" id="expiry">Loading…</div></div>
+      <div class="stat"><div class="label">TIME LEFT</div><div class="value" id="countdown">—</div></div>
+      <div class="stat"><div class="label">LAST ONLINE</div><div class="value" id="lastOnline">—</div></div>
+    </div>
+  </section>
+</div>
+<section class="card" style="margin-top:16px">
+  <h3>Connection profiles · {{ len .links }}</h3>
+  <div class="links" id="connectionLinks">
+  {{ range $i, $link := .links }}
+    <div class="linkrow"><code>{{ $link }}</code><button class="smallbtn" type="button" data-copy="{{ $link }}">Copy</button></div>
+  {{ else }}
+    <div class="label">No connection profiles were provided.</div>
+  {{ end }}
+  </div>
+</section>
+{{ if .announce }}<div class="notice">{{ .announce }}</div>{{ end }}
+{{ if .subSupportUrl }}<div class="actions"><a class="btn" href="{{ .subSupportUrl }}" target="_blank" rel="noopener">Contact support</a></div>{{ end }}
+<div class="footer">NIMA V2RAY · NEXT-GEN PRIVATE NETWORK</div>
+</div>
+<script>
+const subUrl={{ .subUrl | printf "%q" }};
+const jsonUrl={{ .subJsonUrl | printf "%q" }};
+const clashUrl={{ .subClashUrl | printf "%q" }};
+const initial={enabled:{{ .enabled }},isOnline:{{ .isOnline }},downloadByte:{{ .downloadByte }},uploadByte:{{ .uploadByte }},totalByte:{{ .totalByte }},expire:{{ .expire }},lastOnline:{{ .lastOnline }}};
+const $=id=>document.getElementById(id);
+$('jsonLink').href=jsonUrl||'#';$('clashLink').href=clashUrl||'#';
+function bytes(n){n=Number(n)||0;if(!n)return '0 B';const u=['B','KB','MB','GB','TB'];const i=Math.min(Math.floor(Math.log(n)/Math.log(1024)),4);return (n/Math.pow(1024,i)).toFixed(i?2:0)+' '+u[i]}
+function date(v){return v?new Date(Number(v)).toLocaleString():'Never'}
+function paint(d){
+ const online=!!d.isOnline;$('statusText').textContent=online?'Online':'Offline';$('statusDot').className='dot'+(online?'':' off');
+ $('enabled').textContent=d.enabled?'Enabled':'Disabled';$('download').textContent=bytes(d.downloadByte);$('upload').textContent=bytes(d.uploadByte);
+ const used=(Number(d.downloadByte)||0)+(Number(d.uploadByte)||0),total=Number(d.totalByte)||0;
+ $('used').textContent=bytes(used);$('remaining').textContent=total?bytes(Math.max(0,total-used)):'Unlimited';
+ $('total').textContent='Limit: '+(total?bytes(total):'Unlimited');
+ const pct=total?Math.min(100,used/total*100):0;$('usageBar').style.width=pct+'%';$('usagePercent').textContent=total?pct.toFixed(1)+'% used':'Unlimited traffic';
+ $('expiry').textContent=Number(d.expire)?date(Number(d.expire)*1000):'Never';
+ $('lastOnline').textContent=date(d.lastOnline);
+ if(Number(d.expire)){const ms=Number(d.expire)*1000-Date.now();if(ms<=0)$('countdown').textContent='Expired';else{const days=Math.floor(ms/86400000),hours=Math.floor(ms%86400000/3600000);$('countdown').textContent=days+'d '+hours+'h'}}else $('countdown').textContent='No expiry';
+}
+paint(initial);
+async function refresh(){try{const r=await fetch(location.pathname+location.search.replace(/([?&])format=info(&|$)/,'$1').replace(/[?&]$/,'')+(location.search.includes('?')?'&':'?')+'format=info',{cache:'no-store'});if(r.ok)paint(await r.json())}catch(e){}}
+$('copySub').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(subUrl);$('copySub').textContent='Copied!';setTimeout(()=>$('copySub').textContent='Copy subscription URL',1600)}catch(e){prompt('Copy subscription URL',subUrl)}});
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(b.dataset.copy);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)}catch(e){prompt('Copy configuration',b.dataset.copy)}}));
+setInterval(refresh,15000);
+</script>
+</body>
+</html>
