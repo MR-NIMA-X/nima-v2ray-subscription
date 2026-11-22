@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
-REPO="${REPO:-https://github.com/USERNAME/nima-v2ray-subscription.git}"
+REPO="${REPO:-https://github.com/mr-nima-x/nima-v2ray-subscription.git}"
 BRANCH="${BRANCH:-main}"
-TARGET="${TARGET:-/etc/3x-ui/sub_templates/2-server}"
+TARGET="${TARGET:-/etc/3x-ui/sub_templates/server}"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 if [[ $EUID -ne 0 ]]; then echo "Run as root: sudo bash update.sh"; exit 1; fi
