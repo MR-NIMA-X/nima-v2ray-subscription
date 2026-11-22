@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-REPO="${REPO:-https://github.com/USERNAME/nima-v2ray-subscription.git}"
+REPO="${REPO:-https://github.com/mr-nima-x/nima-v2ray-subscription.git}"
 BRANCH="${BRANCH:-main}"
 TARGET="${TARGET:-/etc/3x-ui/sub_templates/2-server}"
 TMP="$(mktemp -d)"
