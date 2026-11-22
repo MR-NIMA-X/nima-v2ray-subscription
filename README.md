@@ -27,16 +27,12 @@ An ultra-cyberpunk, dark-pink custom subscription information template for **MHS
 
 ## Install
 
-1. Replace `USERNAME` in `install.sh` and `update.sh` with your GitHub username.
-2. Push this repository to GitHub as `nima-v2ray-subscription`.
-3. On the VPS, run:
-
    ```bash
-   bash <(curl -fsSL https://raw.githubusercontent.com/USERNAME/nima-v2ray-subscription/main/install.sh)
+   bash <(curl -fsSL https://raw.githubusercontent.com/mr-nima-x/nima-v2ray-subscription/main/install.sh)
    ```
 
-4. In 3x-ui, open **Settings → Subscription → Information**.
-5. Set **Sub Theme Directory** to:
+1.  In 3x-ui, open **Settings → Subscription → Information**.
+2.  Set **Sub Theme Directory** to:
 
    ```text
    /etc/3x-ui/sub_templates/2-server
@@ -47,7 +43,7 @@ An ultra-cyberpunk, dark-pink custom subscription information template for **MHS
 ## Update
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/USERNAME/nima-v2ray-subscription/main/update.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/mr-nima-x/nima-v2ray-subscription/main/update.sh)
 ```
 
 The updater backs up the existing template before replacing it.
