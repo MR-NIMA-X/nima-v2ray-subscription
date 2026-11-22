@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-TARGET="${TARGET:-/etc/3x-ui/sub_templates/2-server}"
+TARGET="${TARGET:-/etc/3x-ui/sub_templates/server}"
 if [[ $EUID -ne 0 ]]; then echo "Run as root: sudo bash uninstall.sh"; exit 1; fi
 if [[ ! -d "$TARGET" ]]; then echo "Template directory not found: $TARGET"; exit 0; fi
 read -r -p "Remove custom template at $TARGET? [y/N] " answer
