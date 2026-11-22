@@ -2,7 +2,7 @@
 set -euo pipefail
 REPO="${REPO:-https://github.com/mr-nima-x/nima-v2ray-subscription.git}"
 BRANCH="${BRANCH:-main}"
-TARGET="${TARGET:-/etc/3x-ui/sub_templates/2-server}"
+TARGET="${TARGET:-/etc/3x-ui/sub_templates/server}"
 TMP="$(mktemp -d)"
 cleanup(){ rm -rf "$TMP"; }
 trap cleanup EXIT
